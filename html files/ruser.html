@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Heal-Di - Your Health Companion</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 1em 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        li {
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .divider {
+            width: 2px;
+            height: 100%;
+            background: url('trybg.jpg');
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .left-section {
+            width: calc(50% - 1px);
+            background: url('/Heal-di/images/trybg.jpg') no-repeat right center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .right-section {
+            width: calc(50% - 1px);
+            background-color: #f4f4f4; /* Slightly grayish color */
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Added shadow */
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #777;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .signup-option {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            transition: box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added shadow */
+        }
+
+        .signup-option img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+        }
+
+            .signup-option button {
+            width: 110%; /* Full width */
+            background-color: #4caf50; /* Slightly grayish green color */
+            color: #fff;
+            padding: 10px 0; /* Adjusted padding */
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-option:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .signup-option button:hover {
+            background-color: #0e1d0e; /* Darker green color on hover */
+        }
+
+        .signup-link {
+            text-decoration: none;
+            color: #3498db; /* Blue color for the link */
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 0.1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Styles for the container */
+        .container {
+            max-width: 960px;
+            margin: 50px auto;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Styles for the left section */
+        .left-section {
+            width: calc(50% - 1px);
+            background: url('/Heal-di/images/trybg.jpg') no-repeat right center;
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Styles for the divider */
+        .divider {
+            width: 2px;
+            height: 100%;
+            background: url('trybg.jpg');
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Styles for the right section */
+        .right-section {
+            width: calc(50% - 1px);
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Styles for the form elements */
+        .right-section form {
+            max-width: 300px; /* Adjust as needed */
+            margin: 0 auto;
+        }
+
+        .right-section h1 {
+            color: #333;
+        }
+
+        .right-section p {
+            color: #777;
+        }
+
+        .right-section label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .right-section input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .right-section button {
+            width: 100%;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .right-section button:hover {
+            background-color: #0e1d0e;
+        }
+
+        .right-section p {
+            margin-top: 16px;
+        }
+
+        .right-section .signup-link {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Heal-Di</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="left-section"></div>
+        <div class="divider"></div>
+        <div class="right-section">
+            <h1>Welcome to Heal-Di</h1>
+            <p>Your Health Companion!</p>
+
+            <div class="right-section">
+   
+            
+                <!-- Login Form -->
+                <form method="POST"> 
+                    <label>Enter Name:</label> 
+                    <input type="name" name="name" placeholder="Enter your name" required><br/> 
+                    <label>Enter Email:</label> 
+                    <input type="email" name="email" placeholder="Enter your email" required><br/> 
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+    
+    
+                </form> 
+            
+                <p>Don't have an account? <a class="signup-link" href="#signup">Create an account</a></p>
+            </div>
+   
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Heal-Di. All rights reserved.</p>
+    </footer>
+</body>
+</html>

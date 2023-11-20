@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heal-Di - Your Health Companion</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, p, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        nav {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        li {
+            margin-right: 20px;
+        }
+
+        /* Background image styles */
+        .background-image {
+            display: flex;
+            flex: 1;
+            position: relative;
+            background: url('/Heal-di/images/trybg.jpg') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bg-text {
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 20px 0;
+        }
+
+        /* Signup buttons styles */
+        .getstarted-buttonn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        .getstarted-buttonn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            background-color: #343a40;
+            color: #fff;
+            padding: 10px 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Heal-Di</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="background-image">
+        <div class="bg-text">
+            <h1>Your Health Companion!</h1>
+            <a class="getstarted-buttonn" href="signup.html">Get Started</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Heal-Di. All rights reserved.</p>
+    </footer>
+</body>
+</html>
