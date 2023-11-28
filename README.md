@@ -81,3 +81,12 @@ Just run this command:
 ```
 python manage.py runserver
 ```
+
+### Docker
+
+#### Build docker image
+
+```
+cd ./heal-app/
+docker build -t heal-app:latest .
+```
