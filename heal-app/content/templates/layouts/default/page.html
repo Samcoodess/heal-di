@@ -46,7 +46,11 @@
                     <a class="nav-link" href="{% url 'accounts:change_email' %}">{% trans 'Change email' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'accounts:log_out' %}">{% trans 'Logout' %}</a>
+                    <!-- <a class="nav-link" href="{% url 'accounts:log_out' %}">{% trans 'Logout' %}</a> -->
+                    <form method="post" action="{% url 'accounts:log_out' %}">
+                        {% csrf_token %}
+                        <button type="submit">Sign Out</button>
+                    </form>
                 </li>
             {% else %}
                 <li class="nav-item">
