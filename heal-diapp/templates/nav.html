@@ -1,0 +1,154 @@
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Healthcare Tool</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background-color: #5c9cc7; 
+            /* padding: 1px; */
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* padding: 2px; */
+            background-color: #0a1721; 
+            color: #ecf0f1; 
+        }
+
+        nav .nav-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .nav-brand img {
+            /* max-height: 80px;  */
+            margin-right: 5px;
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ecf0f1;
+            font-weight: bold;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #34495e; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px; 
+        }
+
+        nav li:hover > ul {
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav ul ul li {
+            width: 100%; 
+            float: none;
+            display: list-item;
+            position: relative;
+        }
+
+        nav ul ul li a {
+            padding: 15px 15px;
+            color: #ecf0f1; 
+            display: block;
+        }
+
+        nav ul ul li a:hover {
+            background-color: #bed1e3; 
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="nav-brand">
+            <img src="{% static 'img/healdi.png' %}" alt="Healdi" width="130" height="150">
+            <h1>HealDi</h1>
+        </div>
+        <ul>
+            <li><a href="{% url 'appointment:home' %}">HOME</a></li>
+            <li><a href="{% url 'appointment:service' %}">CONTACT</a></li>
+
+            {% if request.user.is_authenticated and request.user.role == 'doctor' %}
+            <li><a href="{% url 'appointment:doctor-appointment' %}">APPOINTMENTS</a></li>
+            <li><a href="{% url 'appointment:patient-list' %}">PATIENTS</a></li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-user"></i> {{ request.user.first_name }}
+                </a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'accounts:doctor-profile-update'  %}">EDIT PROFILE</a></li>
+                    <li><a href="{% url 'accounts:logout' %}">LOGOUT</a></li>
+                </ul>
+            </li>
+
+            {% elif request.user.is_authenticated and request.user.role == 'patient' %}
+            <li>
+                <a href="#">
+                    {{ request.user.first_name }}
+                </a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'accounts:patient-profile-update'  %}">EDIT PROFILE</a></li>
+                    <li><a href="{% url 'accounts:logout' %}">LOGOUT</a></li>
+                </ul>
+            </li>
+
+            {% else %}
+            <li><a href="#">REGISTER</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'accounts:doctor-register' %}">DOCTOR</a></li>
+                    <li><a href="{% url 'accounts:patient-register' %}">PATIENT</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="{% url 'accounts:login' %}">
+                    <span class="glyphicon glyphicon-user"> LOGIN</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+</body>
+</html>

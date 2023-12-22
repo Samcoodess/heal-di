@@ -1,0 +1,147 @@
+ {% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+
+    <!-- ***** Welcome Area Start ***** -->
+<!-- ***** Welcome Area Start ***** -->
+<section class="welcome-area">
+    <!-- Welcome Slides -->
+    <div class="welcome-slides owl-carousel">
+        <!-- Single Welcome Slide -->
+        <div class="welcome-welcome-slide bg-img bg-gradient-overlay jarallax" style="background-image: url('{% static 'img/trybg.jpg' %}');">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <!-- Welcome Text -->
+                        <div class="welcome-text text-center">
+                            <h2 data-animation="fadeInDown" data-delay="100ms">Your health Companion</h2>
+                            <div class="welcome-btn-group">
+                                <div class="row">
+                                    <!-- Schedule an Appointment -->
+                                    <div class="col-md-4 mb-4">
+                                        <a href="#" class="btn btn-block btn-outline-primary">
+                                            <img src="{% static 'img/appoint.jpg' %}" alt="Schedule an Appointment" class="img-fluid">
+                                            <p>Schedule an Appointment</p>
+                                        </a>
+                        
+                                    </div>
+                                    <!-- Organized Medical Records -->
+                                    <div class="col-md-4 mb-4">
+                                        <a href="#" class="btn btn-block btn-outline-success">
+                                            <img src="{% static 'img/bg.jpg' %}" alt="Medical Records" class="img-fluid">
+                                            <p>Medical Records</p>
+                                        </a>
+                                    </div>
+                                    <!-- Personal Medcalendar -->
+                                    <div class="col-md-4 mb-4">
+                                        <a href="#" class="btn btn-block btn-outline-info">
+                                            <img src="{% static 'img/calen.jpg' %}" alt="Personal Medcalendar" class="img-fluid">
+                                            <p>Personal Medcalendar</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Schedule an Appointment -->
+<section class="section-padding-35-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h3 class="lead">Schedule an Appointment</h3>
+                    <div class="line"></div>
+                    <!-- Add your appointment scheduling content here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Medical Records -->
+<section class="section-padding-35-0 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h3 class="lead">Medical Records</h3>
+                    <div class="line"></div>
+                    <!-- Add your medical records content here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Personal Medcalendar -->
+<section class="section-padding-35-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h3 class="lead">Personal Medcalendar</h3>
+                    <div class="line"></div>
+                    <!-- Add your personal medcalendar content here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <section class="dentist-area section-padding-35-0">
+
+        <div class="container">
+
+
+
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                         </br>
+
+                        <h3 class="lead">Learn more </h3>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+
+  
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; First</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </span>
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
