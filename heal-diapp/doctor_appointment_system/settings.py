@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'appointment',
     'accounts',
     'bootstrapform',
+    'appointments',
 ]
 AUTH_USER_MODEL = 'accounts.User'
 
