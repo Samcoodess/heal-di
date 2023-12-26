@@ -7,7 +7,7 @@ Your health companion
 ## Directory Structure
 
 The `heal-diapp` project includes multiple Django apps:
-- `schedule_appointment`
+- `appointments`
 - `medrecords`
 - `medcalendar`
 - `accounts`
