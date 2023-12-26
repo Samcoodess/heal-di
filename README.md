@@ -1,25 +1,46 @@
-# heal-di
-A health companion
+# Heal-di 🩺🏥
+Your health companion
 
 ## App
 
-- django app is located [here](./heal-app/)
+- django app is located [here](./heal-diapp/)
+## Directory Structure
 
-## Features
+The `heal-diapp` project includes multiple Django apps:
+- `schedule_appointment`
+- `medrecords`
+- `medcalendar`
+- `accounts`
 
-- Login
-    - via username & password
-    - via email & password
-    - via email or username & password
-    - with a remember me checkbox (optional)
-- Register
+Each app follows a standard Django app directory structure.
+
+## Features 
+
+### Schedule Appointment App 🚧
+
+- Appointment Scheduling
+- Appointment Management
+- Calendar Integration
+
+### Medrecords App 🚧
+
+- Electronic Medical Records
+- Encrypted Record Management
+- Document Upload
+
+### Medcalendar App 🚧
+
+- Health Calendar
+- Reminders and Notifications
+
+### Accounts App ⌛
+- User Groups (Doctors, Patients)
+- User Registration and Authentication
+- Profile Management
+- Password Recovery
+- Login (Username & Password, Email & Password, Email or Username & Password, Remember Me)
 - Logout
-- Profile activation via email
-- Reset password
-- Resend an activation code
-- Change password
-- Change profile
-- Multilingual
+
 
 ## Installing
 
@@ -27,13 +48,13 @@ A health companion
 
 ```
 git clone git@github.com:Samcoodess/heal-di.git
-cd heal-app
+cd heal-diapp
 ```
 
 ### Install dependencies & activate virtualenv
 
 ```
-cd heal-app
+cd heal-diapp
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -51,9 +72,9 @@ python manage.py createsuperuser --email sam@superapp.com --username sam
 
 ### Configure the settings (connection to the database, connection to an SMTP server, and other options)
 
-1. Edit `heal-app/app/conf/development/settings.py` if you want to develop the project. Some of the interesting settings are the usage of sqlite3 database (can be opened with [sqlitebrowser](https://sqlitebrowser.org/) ) 
+1. Edit `heal-diapp/app/conf/development/settings.py` if you want to develop the project. Some of the interesting settings are the usage of sqlite3 database (can be opened with [sqlitebrowser](https://sqlitebrowser.org/) ) 
 
-2. Edit `heal-app/app/conf/production/settings.py` if you want to run the project in production. This requires `IS_PRODUCTION`` env variable to activate state.
+2. Edit `heal-diapp/app/conf/production/settings.py` if you want to run the project in production. This requires `IS_PRODUCTION`` env variable to activate state.
 
 
 ## Apply migrations
@@ -87,6 +108,6 @@ python manage.py runserver
 #### Build docker image
 
 ```
-cd ./heal-app/
+cd ./heal-diapp/
 docker build -t heal-app:latest .
 ```
