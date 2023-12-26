@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Schedule an Appointment - Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</h2>
+  <form method="post" action="{% url 'schedule_appointment' %}">
+    {% csrf_token %}
+    {{ wizard.management_form }}
+
+    {% if wizard.form.forms %}
+        {{ wizard.form.management_form }}
+        {% for form in wizard.form.forms %}
+            {{ form }}
+        {% endfor %}
+    {% else %}
+        {{ wizard.form }}
+    {% endif %}
+
+    {% if wizard.steps.current == 'step1' %}
+        <button type="submit" name="wizard_goto_step" value="step2">Next Step</button>
+    {% elif wizard.steps.current == 'step2' %}
+        <button type="submit" name="wizard_goto_step" value="step3">Next Step</button>
+    {% elif wizard.steps.current == 'step3' %}
+        <button type="submit" name="wizard_goto_step" value="submit">Submit</button>
+    {% endif %}
+  </form>
+
+  <h3>Debug Information:</h3>
+  <p>Current Step: {{ wizard.steps.current }}</p>
+  <p>Available Forms: {{ wizard.form.forms|default:'No forms' }}</p>
+  <p>Current Step Forms: {{ wizard.form[wizard.steps.current].forms|default:'No forms' }}</p>
+{% endblock %}

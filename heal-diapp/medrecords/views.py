@@ -1,3 +1,5 @@
+# appointments/views.py
 from django.shortcuts import render
 
-# Create your views here.
+def medrecords(request):
+    return render(request, 'medrecords.html')

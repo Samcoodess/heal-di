@@ -1,0 +1,12 @@
+<!-- schedule_appointment.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Schedule Appointment</h2>
+  <form method="post" action="{% url 'schedule_appointment' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+
+{% endblock %}
