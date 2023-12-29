@@ -24,12 +24,13 @@
                                 <div class="row">
                                     <!-- Schedule an Appointment -->
                                     <div class="col-md-4 mb-4">
-                                        <a href="{% url 'schedule_appointment'%}" class="btn btn-block btn-outline-primary">
+                                        <a href="{% url 'schedule_step1' %}" class="btn btn-block btn-outline-primary" id="schedule-appointment">
                                             <img src="{% static 'img/appoint.jpg' %}" alt="Schedule an Appointment" class="img-fluid">
                                             <p>Schedule an Appointment</p>
                                         </a>
-                        
                                     </div>
+
+                        
                                     <!-- Organized Medical Records -->
                                     <div class="col-md-4 mb-4">
                                         <a href="{% url 'medrecords'%}" class="btn btn-block btn-outline-success">
@@ -39,8 +40,8 @@
                                     </div>
                                     <!-- Personal Medcalendar -->
                                     <div class="col-md-4 mb-4">
-                                        <a href="{% url 'medcalendar'%}" class="btn btn-block btn-outline-info">
-                                            <img src="{% static 'img/calen.jpg' %}" alt="Personal Medcalendar" class="img-fluid">
+                                        <a href="{% url 'medcalendar:calendar' %}" class="btn btn-block btn-outline-info">
+                                        <img src="{% static 'img/calen.jpg' %}" alt="Personal Medcalendar" class="img-fluid">
                                             <p>Personal Medcalendar</p>
                                         </a>
                                     </div>
@@ -143,5 +144,7 @@
 
         </div>
     </section>
+
+
 
 {% endblock %}

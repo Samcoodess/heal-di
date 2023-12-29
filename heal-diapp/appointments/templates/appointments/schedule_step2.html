@@ -1,0 +1,5 @@
+<form method="post" action="{% url 'schedule_step2' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Next">
+</form>

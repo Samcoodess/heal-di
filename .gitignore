@@ -163,3 +163,4 @@ cython_debug/
 
 # Folders
 backup/
+appointments/templates/appointments/schedule_step1.html
