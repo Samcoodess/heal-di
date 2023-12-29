@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>My Calendar</h2>
+    {% load scheduletags %}
+    {% calendar "schedule/calendar.html" %}
+{% endblock %}

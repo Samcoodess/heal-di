@@ -1,10 +1,25 @@
+# # medcalendar/urls.py
+# from django.urls import path, include
+# from .views import medcalendar, calendar_view
+# from .views import CalendarView
 
 
-# appointments/urls.py
+# app_name = 'medcalendar'  # Set the app_name here
+
+# urlpatterns = [
+#     path('calendar/', include('schedule.urls')),
+
+
+# ]
+
+
+# medcalendar/urls.py
 from django.urls import path
-from .views import medcalendar
+from .views import CalendarView
+
+app_name = 'medcalendar'
 
 urlpatterns = [
-    path('medcalendar/', medcalendar, name='medcalendar'),
-    # Add other URL patterns as needed
+    path('calendar/', CalendarView.as_view(), name='calendar'),
+    # other URL patterns for the medcalendar app
 ]

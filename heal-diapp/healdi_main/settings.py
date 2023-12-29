@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'medrecords',
     'medcalendar',
     'formtools',
+    'schedule',
+
 ]
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -151,3 +153,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_URL = 'accounts:login'
+
+TEMPLATE_CONTEXT_PROCESSORS = "django.template.context_processors.request"

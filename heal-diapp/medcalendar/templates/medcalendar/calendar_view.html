@@ -1,0 +1,22 @@
+<!-- templates/medcalendar/calendar_view.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>MedCalendar</h1>
+
+    {% for calendar in calendars %}
+        <div>
+            <h2>{{ calendar.date }}</h2>
+            <!-- Display symptoms and med records for this date -->
+            {% for symptom in calendar.symptoms_set.all %}
+                <p>Symptom: {{ symptom.symptom_name }}</p>
+            {% endfor %}
+            {% for record in calendar.medrecords_set.all %}
+                <p>Record: {{ record.record_name }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+
+{% endblock %}
