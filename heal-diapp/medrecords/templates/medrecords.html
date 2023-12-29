@@ -3,5 +3,24 @@
 
 {% block content %}
     <h2>Medrecords</h2>
+    <a href="{% url 'upload_document' %}">Upload Document</a>
     <!-- Your appointment scheduling form goes here -->
+
+    <hr>
+    <h1>Document List</h1>
+
+    <ul>
+      {% for document in documents %}
+        <li>
+          <strong>{{ document.title }}</strong><br>
+          Uploaded by: {{ document.uploaded_by.username }}<br>
+          Upload Time: {{ document.creation_time }}<br>
+          {% if document.file.url|slice:"-4:" == '.pg' %}
+          <iframe src="{{ document.file.url }}" width="600" height="400"></iframe>
+        {% else %}
+          <a href="{{ document.file.url }}" download>Download Document</a>
+        {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
 {% endblock %}
