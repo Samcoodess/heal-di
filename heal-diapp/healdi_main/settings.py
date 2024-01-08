@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'medrecords',
     'medcalendar',
     'formtools',
-    'schedule',
+    # 'schedule',
 
 ]
 AUTH_USER_MODEL = 'accounts.User'

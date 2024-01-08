@@ -17,7 +17,7 @@ urlpatterns = [
     path('', include('appointment.urls')),
     path('', include('medrecords.urls')),
     # path('', include('medcalendar.urls')),
-    path('schedule/', include(('schedule.urls', 'schedule'), namespace='schedule')),
+    # path('schedule/', include(('schedule.urls', 'schedule'), namespace='schedule')),
     path('medcalendar/', include(('medcalendar.urls', 'medcalendar'), namespace='medcalendar')),
 
 
