@@ -32,6 +32,8 @@ RUN apk add --no-cache \
         gettext-libs \
         jpeg-dev \
         zlib-dev \
+        postgresql-dev \
+        postgresql-client \
     && apk add --no-cache --virtual build-requirements \
         cargo \
         freetype-dev \

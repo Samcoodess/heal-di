@@ -1,0 +1,45 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:15.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=app
+    volumes:
+      - db:/var/lib/postgresql/data
+    container_name: postgres-db
+
+  web:
+    restart: unless-stopped
+    build:
+      context: heal-diapp
+    volumes:
+      - ./heal-diapp:/app:rw
+      - web-static:/app/static
+    expose:
+      - 8000
+    depends_on:
+      - db
+    environment:
+      - name=value
+    command: ["gunicorn", "--bind", ":8000", "--workers", "3", "healdi_main.wsgi:application"]
+    container_name: app
+
+  nginx:
+    restart: always
+    build:
+      context: files
+      dockerfile:  nginx.dockerfile
+    ports:
+      - "1080:80"
+      - "1443:443"
+    volumes:
+      - web-static:/www/static
+    links:
+      - web:web
+
+volumes:
+  db:
+  web-static:

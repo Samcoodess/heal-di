@@ -111,3 +111,22 @@ python manage.py runserver
 cd ./heal-diapp/
 docker build -t heal-app:latest .
 ```
+
+#### Docker-compose
+
+```
+docker-compose build --force-rm
+docker-compose up
+```
+
+Running post install commands:
+
+```
+$ docker-compose exec web python manage.py migrate --noinput
+```
+
+Executing SQL server commands: 
+
+```
+$ docker-compose exec db psql --username=postgres --dbname=app
+```
